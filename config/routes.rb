@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
   resources "companies"
+  # 7 REST routes
+  # get index
+  # get show
+  # get new
+  # post create
+  # get edit
+  # patch update
+  # delete destroy
   resources "contacts"
   resources "activities"
   resources "tasks"
   resources "users"
+  # get new
 
   resources "sessions"
   # get("/sessions", {:controller => "sessions", :action => "index"})
@@ -14,7 +23,7 @@ Rails.application.routes.draw do
   # patch("/sessions/:id", {:controller => "sessions", :action => "update"})
   # delete("/sessions/:id", {:controller => "sessions", :action => "destroy"})
   get("/login", {:controller => "sessions", :action => "new"})
-  get("/logout", {:controller => "sessions", :action => "destroy"})
+  delete("/logout", {:controller => "sessions", :action => "destroy"})
 
   # Landing page (aka root route)
   # get("/", {:controller => "", :action => ""})

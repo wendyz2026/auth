@@ -7,4 +7,23 @@
   <dd><%= @user["last_name"] %></dd>
   <dt>Email:</dt>
   <dd><%= @user["email"] %></dd>
+  <dt>Password:</dt>
+  <dd>
+    <span id="password_display">••••••••</span>
+    <span id="password_actual" style="display:none;"><%= @user["password"] %></span>
+    <button type="button" onclick="togglePasswordDisplay(this)" style="background: none; border: none; cursor: pointer; padding: 0; color: inherit; vertical-align: middle;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+    </button>
+  </dd>
 </dl>
+
+<script>
+  function togglePasswordDisplay(btn) {
+    var dots = document.getElementById("password_display");
+    var actual = document.getElementById("password_actual");
+    var isHidden = actual.style.display === "none";
+    dots.style.display = isHidden ? "none" : "inline";
+    actual.style.display = isHidden ? "inline" : "none";
+    btn.innerHTML = isHidden ? eyeOffSVG() : eyeSVG();
+  }
+</script>
